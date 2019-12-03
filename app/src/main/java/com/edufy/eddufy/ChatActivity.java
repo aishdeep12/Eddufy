@@ -55,8 +55,8 @@ public class ChatActivity extends AppCompatActivity {
        // final String userId = intent.getStringExtra("name");
 //       fUser = FirebaseAuth.getInstance().getCurrentUser();
 //         fUser = FirebaseAuth.getInstance().getCurrentUser();
-        Bundle extras = getIntent().getExtras();
-        fUserString = extras.getString("uid");
+//        Bundle extras = getIntent().getExtras();
+//        fUserString = extras.getString("uid");
 
        btn_Send.setOnClickListener(new View.OnClickListener() {
            @Override
