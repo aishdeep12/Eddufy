@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e6e6e6">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_View"
+        android:layout_width="match_parent"
+        android:layout_height="577dp"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="15dp" />
+
+    <EditText
+        android:id="@+id/text_send"
+        android:layout_width="313dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/recycler_View"
+        android:background="#FFFFFF"
+        android:hint="  Type Message Here" />
+
+    <Button
+        android:id="@+id/btn_Send"
+        android:layout_width="98dp"
+        android:layout_height="61dp"
+        android:layout_below="@id/recycler_View"
+        android:layout_toRightOf="@id/text_send"
+        android:text="Send" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp"
+        android:text="User Name"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp" />
+
+</RelativeLayout>

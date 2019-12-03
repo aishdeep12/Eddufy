@@ -1,0 +1,122 @@
+{
+  "project_info": {
+    "project_number": "150746363891",
+    "firebase_url": "https://edufy-a7d37.firebaseio.com",
+    "project_id": "edufy-a7d37",
+    "storage_bucket": "edufy-a7d37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150746363891:android:35910010033c9447",
+        "android_client_info": {
+          "package_name": "com.edufy.eddufy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150746363891-htg2tgobvehhm609lebsla52musgffv9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.edufy.eddufy",
+            "certificate_hash": "43bfc67dd0807c7037e7214e2682cea6cfc1bc09"
+          }
+        },
+        {
+          "client_id": "150746363891-ciqhossqq8nd873t2h0qcbkh9gckjtbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa2ZCYzPne3cU46r7nZh_bDzE7GELsqz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150746363891-ciqhossqq8nd873t2h0qcbkh9gckjtbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150746363891:android:11fe8ab0ddace648",
+        "android_client_info": {
+          "package_name": "com.example.eddufy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150746363891-vu9144p3pmb58imsu6rmlednanr1lsrg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eddufy",
+            "certificate_hash": "43bfc67dd0807c7037e7214e2682cea6cfc1bc09"
+          }
+        },
+        {
+          "client_id": "150746363891-ciqhossqq8nd873t2h0qcbkh9gckjtbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa2ZCYzPne3cU46r7nZh_bDzE7GELsqz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150746363891-ciqhossqq8nd873t2h0qcbkh9gckjtbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150746363891:android:d5d83e27849fb01e",
+        "android_client_info": {
+          "package_name": "com.example.edufy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150746363891-5lc1176980f3melrlocp3un8to6ut5sc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.edufy",
+            "certificate_hash": "43bfc67dd0807c7037e7214e2682cea6cfc1bc09"
+          }
+        },
+        {
+          "client_id": "150746363891-ciqhossqq8nd873t2h0qcbkh9gckjtbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa2ZCYzPne3cU46r7nZh_bDzE7GELsqz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150746363891-ciqhossqq8nd873t2h0qcbkh9gckjtbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

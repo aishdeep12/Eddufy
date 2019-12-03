@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="#e6e6e6">
+
+
+    <ImageView
+        android:id="@+id/imageViewImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/bg_edittext_focused" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imageViewImage"
+        android:text="TextView" />
+    <TextView
+        android:id="@+id/textViewCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+      android:layout_below="@+id/textViewName"
+
+        android:layout_toRightOf="@+id/imageViewImage"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/coneectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/chat_btn"
+        android:text="Connect"
+        android:layout_centerVertical="true"
+
+        android:textSize="10sp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Registration">
+
+
+    <Button
+        android:id="@+id/buttonTutor"
+        android:layout_width="112dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/finalstudent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextName"
+        app:layout_constraintEnd_toStartOf="@+id/buttonStudent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonStudent"
+        android:layout_width="112dp"
+        android:layout_height="105dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/finaltutor"
+        app:layout_constraintBottom_toTopOf="@+id/editTextName"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonRegistration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="154dp"
+        android:layout_marginEnd="169dp"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/shape_btn"
+        android:text="Done"
+        android:textColor="#FFDCD011"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="28dp"
+
+        android:background="@drawable/shape_edittext"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textEmailAddress"
+        android:paddingStart="20dp"
+        android:textColorHint="#FFDCD011"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroupGender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupGender"
+        android:layout_width="309dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="28dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerOrganization"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButtonMale"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:text="Male"
+
+            android:textColor="#FFDCD011"
+            tools:layout_editor_absoluteX="44dp"
+            tools:layout_editor_absoluteY="236dp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonFemale"
+            android:layout_width="131dp"
+            android:layout_height="22dp"
+            android:text="Female"
+            android:textColor="#FFDCD011"
+            tools:layout_editor_absoluteX="174dp"
+            tools:layout_editor_absoluteY="240dp" />
+
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/spinnerOrganization"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="32dp"
+        android:background="#FFFFFF"
+        android:entries="@array/organization_List"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerCourse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerCourse"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="52dp"
+        android:background="#FFFFFF"
+        android:entries="@array/course_List"
+        android:popupBackground="#FFFFFF"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegistration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

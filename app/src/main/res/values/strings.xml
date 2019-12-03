@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Eddufy</string>
+
+    <string name="title_activity_profile">Profile</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="spinnerList">
+        <item>High School Diploma</item>
+        <item>Advanced Diploma</item>
+        <item>Under Gradute</item>
+        <item>Post Graduate Diploma</item>
+        <item>Masters degree</item>
+
+
+    </string-array>
+
+    <string-array name="organization_List">
+        <item>Algonquin College</item>
+        <item>Centennial College</item>
+        <item>Fanshawe College</item>
+        <item>George Brown College</item>
+        <item>Georgian College</item>
+        <item>Humber College</item>
+        <item>Lambton College</item>
+        <item>Niagra College</item>
+        <item>Seneca College</item>
+        <item>Sheridan College</item>
+    </string-array>
+
+    <string-array name="course_List">
+        <item>Android Development</item>
+        <item>C#</item>
+        <item>Data Visualization</item>
+        <item>Hadoop</item>
+        <item>Ionic</item>
+        <item>Ios Development</item>
+        <item>Python</item>
+        <item>R Progrmming</item>
+        <item>React Native</item>
+        <item>Web API</item>
+        <item>Web Applications</item>
+
+
+    </string-array>
+
+</resources>
