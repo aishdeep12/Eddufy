@@ -30,7 +30,7 @@ public class Search extends AppCompatActivity {
         ListView listViewTutors;
         public EditText editText3;
 public String uid;
-    Intent intent;
+
 
 
     //Spinner spinnerSearch;
@@ -44,6 +44,9 @@ public String uid;
         editText3 = findViewById(R.id.editText3);
 
         Bundle extras = getIntent().getExtras();
+
+        String uid = extras.getString("uid");
+
 
 
 
