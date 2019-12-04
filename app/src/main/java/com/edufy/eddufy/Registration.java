@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -98,6 +99,7 @@ buttonRegistration.setOnClickListener(new View.OnClickListener() {
         DatabaseReference myStudent = database.getReference("student");
         if(spinnerCourse.isEnabled()== true){
             String id  = myTutor.push().getKey();
+            String fUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
             RegistrationInformation regInfo = new RegistrationInformation(id,editTextName.getText().toString(),email,gender,course,institution);
             myTutor.child(id).setValue(regInfo);
 

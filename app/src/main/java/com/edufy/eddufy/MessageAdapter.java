@@ -21,7 +21,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public static  final int MSG_TYPE_RIGHT = 1;
     public static  final int MSG_TYPE_LEFT = 0;
 
-    FirebaseUser fUser;
+    FirebaseUser fUser, fUser2;
     private List<MessageInfo> mChat;
     private Context mContext;
 
@@ -74,7 +74,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     public int getItemViewType(int position) {
 
         fUser = FirebaseAuth.getInstance().getCurrentUser();
-        System.out.println(fUser);
+
+
         if(mChat.get(position).getSender().equals(fUser.getUid()))
 //        if(mChat.get(position).getSender().equals("bfADRrp881OpPCr57I5YnvNOHpu2")){
         {

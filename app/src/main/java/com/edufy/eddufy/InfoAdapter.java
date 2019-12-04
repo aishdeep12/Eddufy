@@ -16,21 +16,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class InfoAdapter extends ArrayAdapter {
     Context context;
     public Button connectButton;
+    public String uid;
+
 
 ArrayList<RegistrationInformation> fireBaseFetch;
 //    ArrayList<FireBaseFetch> fireBaseFetch;
-    public InfoAdapter(Activity context, ArrayList<RegistrationInformation> fireBaseFetch) {
+    public InfoAdapter(Activity context, ArrayList<RegistrationInformation> fireBaseFetch, String uid) {
 
         super(context,R.layout.listview,fireBaseFetch);
 
         this.context = context;
-//        this.resource = resource;
+        this.uid = uid;
         this.fireBaseFetch = fireBaseFetch;
 
     }
@@ -57,7 +61,7 @@ connectButton.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(context, ChatActivity.class);
-
+        intent.putExtra("uid",uid);
         context.startActivity(intent);
 
     }

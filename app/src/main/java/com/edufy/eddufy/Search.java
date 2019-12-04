@@ -29,6 +29,8 @@ public class Search extends AppCompatActivity {
         List<RegistrationInformation> tutorsList;
         ListView listViewTutors;
         public EditText editText3;
+        private InfoAdapter infoAdapter;
+
 public String uid;
 
 
@@ -45,7 +47,7 @@ public String uid;
 
         Bundle extras = getIntent().getExtras();
 
-        String uid = extras.getString("uid");
+        uid = extras.getString("uid");
 
 
 
@@ -67,7 +69,7 @@ public String uid;
                     RegistrationInformation fireBaseFetchData = tutorSnapshot.getValue(RegistrationInformation.class);
                     tutorsList.add(fireBaseFetchData);
                 }
-                InfoAdapter adapter = new InfoAdapter(Search.this, (ArrayList<RegistrationInformation>) tutorsList);
+                InfoAdapter adapter = new InfoAdapter(Search.this, (ArrayList<RegistrationInformation>) tutorsList, uid);
                 listViewTutors.setAdapter(adapter);
 //            }
                 Log.i("Result", "Hello");

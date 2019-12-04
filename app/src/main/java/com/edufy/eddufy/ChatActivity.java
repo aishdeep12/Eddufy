@@ -38,6 +38,7 @@ public class ChatActivity extends AppCompatActivity {
     RecyclerView recycler_View;
     public String fUserString;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,15 +56,17 @@ public class ChatActivity extends AppCompatActivity {
        // final String userId = intent.getStringExtra("name");
 //       fUser = FirebaseAuth.getInstance().getCurrentUser();
 //         fUser = FirebaseAuth.getInstance().getCurrentUser();
-//        Bundle extras = getIntent().getExtras();
-//        fUserString = extras.getString("uid");
+        Bundle extras = getIntent().getExtras();
+        fUserString = extras.getString("uid");
+
+
 
        btn_Send.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                String msg = text_send.getText().toString();
                if(!msg.equals("")){
-                   sendMessage("bfADRrp881OpPCr57I5YnvNOHpu2","bpgvI1n4tkOavEb6edUgEibWQQn1",msg);
+                   sendMessage(fUserString,"bpgvI1n4tkOavEb6edUgEibWQQn1",msg);
 
                }else{
                    Toast.makeText(ChatActivity.this, "You Cannot Send Empty Message", Toast.LENGTH_SHORT).show();
@@ -77,7 +80,7 @@ public class ChatActivity extends AppCompatActivity {
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                RegistrationInformation user = dataSnapshot.getValue(RegistrationInformation.class);
-               readMessage("bfADRrp881OpPCr57I5YnvNOHpu2","bpgvI1n4tkOavEb6edUgEibWQQn1");
+               readMessage(fUserString,"bpgvI1n4tkOavEb6edUgEibWQQn1");
 
            }
 
@@ -116,7 +119,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
 //                    if(chat.getReceiver().equals(myId) && chat.getSender().equals(userId))
-                   if(chat.getReceiver()=="bpgvI1n4tkOavEb6edUgEibWQQn1" && chat.getSender() == "bfADRrp881OpPCr57I5YnvNOHpu2"){
+                   if(chat.getReceiver()=="bpgvI1n4tkOavEb6edUgEibWQQn1" && chat.getSender() == fUserString){
                         mChats.add(chat);
                         System.out.println(mChats);
 

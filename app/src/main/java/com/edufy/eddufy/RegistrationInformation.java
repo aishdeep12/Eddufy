@@ -22,6 +22,7 @@ public class RegistrationInformation {
         this.gender = gender;
         this.course = course;
         this.institution = institution;
+        
 
     }
 
