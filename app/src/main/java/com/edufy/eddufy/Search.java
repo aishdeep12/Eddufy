@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Search extends AppCompatActivity {
+public class Search extends AppCompatActivity  {
         DatabaseReference databaseReference;
 //        List<FireBaseFetch> tutorsList;
         List<RegistrationInformation> tutorsList;
@@ -71,8 +72,10 @@ public String uid;
                 }
                 InfoAdapter adapter = new InfoAdapter(Search.this, (ArrayList<RegistrationInformation>) tutorsList, uid);
                 listViewTutors.setAdapter(adapter);
+
+
 //            }
-                Log.i("Result", "Hello");
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -81,8 +84,5 @@ public String uid;
         });
     }
 
-    public void currentStatus(View view) {
 
-        Toast.makeText(Search.this,"Other Pages Under developement",Toast.LENGTH_LONG).show();
-    }
 }

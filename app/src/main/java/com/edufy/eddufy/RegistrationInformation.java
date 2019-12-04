@@ -10,19 +10,20 @@ public class RegistrationInformation {
     public String gender;
     public String course;
     public String institution;
+    public String userId;
 
     public RegistrationInformation(){
         //require empty constructor
     }
 
-    public RegistrationInformation(String id, String name, String email, String gender, String course, String institution){
+    public RegistrationInformation(String id, String name, String email, String gender, String course, String institution, String userId){
         this.id = id;
         this.name = name;
         this.email = email;
         this.gender = gender;
         this.course = course;
         this.institution = institution;
-        
+        this.userId = userId;
 
     }
 
@@ -44,5 +45,8 @@ public class RegistrationInformation {
     }
     public String getInstitution(){
         return institution;
+    }
+    public String getuserId(){
+        return userId;
     }
 }

@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignUp extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class SignUp extends AppCompatActivity {
     EditText editTextPassword;
     ProgressDialog progressDialog;
     TextView editTextLogin;
+
 
     Button buttonSignUp;
     private FirebaseAuth firebaseAuth;
@@ -79,7 +81,7 @@ public class SignUp extends AppCompatActivity {
             Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show();
             return;
         }
-        Intent intent = new Intent(this ,Registration.class);
+        final Intent intent = new Intent(this ,Registration.class);
         intent.putExtra("Email",editTextEmail.toString());
 
         // if the email and password are not empty
@@ -98,7 +100,10 @@ public class SignUp extends AppCompatActivity {
                         if (task.isSuccessful()) {
 //                            Intent intent = new Intent(SignUp.this , Registration.class);
 //                            intent.putExtra("Email",editTextEmail.toString());
+                            String fuser = task.getResult().getUser().getUid();
+                            System.out.println(fuser);
                             Intent I = new Intent(SignUp.this, Registration.class);
+                           I.putExtra("userId", fuser);
                             startActivity(I);
                             //display some message here
                             Toast.makeText(SignUp.this, "Successfully registered", Toast.LENGTH_LONG).show();

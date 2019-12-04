@@ -37,6 +37,8 @@ public class ChatActivity extends AppCompatActivity {
     List<MessageInfo> mChats;
     RecyclerView recycler_View;
     public String fUserString;
+    public String tutorNameString;
+    public String tutoridString;
 
 
     @Override
@@ -57,7 +59,14 @@ public class ChatActivity extends AppCompatActivity {
 //       fUser = FirebaseAuth.getInstance().getCurrentUser();
 //         fUser = FirebaseAuth.getInstance().getCurrentUser();
         Bundle extras = getIntent().getExtras();
-        fUserString = extras.getString("uid");
+//        fUserString = "4EnN1wtdqAY4a3KPGCigRr07bFz1";
+     fUserString = extras.getString("uid");
+        tutorNameString = extras.getString("tutorName");
+//tutoridString="Gw38kSLQcPWzldSk49PHTgPSlVz1";
+       tutoridString = extras.getString("tutorid");
+        System.out.println(tutoridString + " tutormy");
+        System.out.println(tutoridString + " usermy");
+        username.setText(tutorNameString);
 
 
 
@@ -66,7 +75,7 @@ public class ChatActivity extends AppCompatActivity {
            public void onClick(View view) {
                String msg = text_send.getText().toString();
                if(!msg.equals("")){
-                   sendMessage(fUserString,"bpgvI1n4tkOavEb6edUgEibWQQn1",msg);
+                   sendMessage(fUserString,tutoridString,msg);
 
                }else{
                    Toast.makeText(ChatActivity.this, "You Cannot Send Empty Message", Toast.LENGTH_SHORT).show();
@@ -74,13 +83,13 @@ public class ChatActivity extends AppCompatActivity {
                text_send.setText("");
            }
        });
-       DatabaseReference reference = FirebaseDatabase.getInstance().getReference("tutors").child("bpgvI1n4tkOavEb6edUgEibWQQn1");
+       DatabaseReference reference = FirebaseDatabase.getInstance().getReference("tutors").child(tutoridString);
        reference.addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                RegistrationInformation user = dataSnapshot.getValue(RegistrationInformation.class);
-               readMessage(fUserString,"bpgvI1n4tkOavEb6edUgEibWQQn1");
+               readMessage(fUserString,tutoridString);
 
            }
 
@@ -117,15 +126,16 @@ public class ChatActivity extends AppCompatActivity {
                     MessageInfo chat = chatSnapshot.getValue(MessageInfo.class);
 
 
-
 //                    if(chat.getReceiver().equals(myId) && chat.getSender().equals(userId))
-                   if(chat.getReceiver()=="bpgvI1n4tkOavEb6edUgEibWQQn1" && chat.getSender() == fUserString){
+                   if(chat.getReceiver()==tutoridString && chat.getSender() == fUserString){
                         mChats.add(chat);
-                        System.out.println(mChats);
+                        System.out.println(tutoridString + "tutor");
+                       System.out.println(fUserString + "user");
+
 
                     }
                     messageAdapter = new MessageAdapter(ChatActivity.this,mChats);
-                   recycler_View.setAdapter(messageAdapter);
+                    recycler_View.setAdapter(messageAdapter);
                 }
             }
 

@@ -32,6 +32,7 @@ public class Registration extends AppCompatActivity implements OnItemSelectedLis
     public String course ;
     public String institution ;
     public RadioButton Male,Female;
+    public String userId;
 
  DatabaseReference dbRef;
 //    List<RegistrationInformation> registrationInfoList;
@@ -54,6 +55,9 @@ public class Registration extends AppCompatActivity implements OnItemSelectedLis
         buttonStudent = findViewById(R.id.buttonStudent);
         buttonTutor = findViewById(R.id.buttonTutor);
         buttonRegistration = findViewById(R.id.buttonRegistration);
+
+        Bundle extra = getIntent().getExtras();
+        userId = extra.getString("userId");
 
 //      course = spinnerCourse.getOnItemSelectedListener().toString();
 
@@ -99,19 +103,19 @@ buttonRegistration.setOnClickListener(new View.OnClickListener() {
         DatabaseReference myStudent = database.getReference("student");
         if(spinnerCourse.isEnabled()== true){
             String id  = myTutor.push().getKey();
-            String fUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            RegistrationInformation regInfo = new RegistrationInformation(id,editTextName.getText().toString(),email,gender,course,institution);
+
+            RegistrationInformation regInfo = new RegistrationInformation(id,editTextName.getText().toString(),email,gender,course,institution,userId);
             myTutor.child(id).setValue(regInfo);
 
         }
         else{
 
             String id  = myStudent.push().getKey();
-            RegistrationInformation regInfo = new RegistrationInformation(id,editTextName.getText().toString(),email,gender,course,"Nil");
+            RegistrationInformation regInfo = new RegistrationInformation(id,editTextName.getText().toString(),email,gender,course,"Nil",userId);
             myStudent.child(id).setValue(regInfo);
         }
 
-        Intent i = new Intent(Registration.this, Search.class);
+        Intent i = new Intent(Registration.this, MainActivity.class);
         startActivity(i);
 
     }
