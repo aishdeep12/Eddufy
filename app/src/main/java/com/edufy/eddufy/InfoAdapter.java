@@ -27,7 +27,7 @@ import static androidx.recyclerview.widget.RecyclerView.*;
 public class InfoAdapter extends ArrayAdapter {
     Context context;
     public Button connectButton;
-    public String uid;
+    public static String uid ;
     public String tutorId;
     public String tutorName;
     public int positions;

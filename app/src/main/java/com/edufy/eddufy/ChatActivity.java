@@ -34,7 +34,7 @@ public class ChatActivity extends AppCompatActivity {
     FirebaseUser fUser;
     Intent intent;
     MessageAdapter messageAdapter;
-    List<MessageInfo> mChats;
+    ArrayList<MessageInfo> mChats;
     RecyclerView recycler_View;
     public String fUserString;
     public String tutorNameString;
@@ -59,20 +59,22 @@ public class ChatActivity extends AppCompatActivity {
 //       fUser = FirebaseAuth.getInstance().getCurrentUser();
 //         fUser = FirebaseAuth.getInstance().getCurrentUser();
         Bundle extras = getIntent().getExtras();
-//        fUserString = "4EnN1wtdqAY4a3KPGCigRr07bFz1";
-     fUserString = extras.getString("uid");
+        fUserString = "4EnN1wtdqAY4a3KPGCigRr07bFz1";
+//     fUserString = extras.getString("uid");
         tutorNameString = extras.getString("tutorName");
-//tutoridString="Gw38kSLQcPWzldSk49PHTgPSlVz1";
-       tutoridString = extras.getString("tutorid");
+        tutoridString="T9txXW5H2xS0WdoOLxWLO9g1EB93";
+//       tutoridString = extras.getString("tutorid");
         System.out.println(tutoridString + " tutormy");
-        System.out.println(tutoridString + " usermy");
+        System.out.println(fUserString + " usermy");
         username.setText(tutorNameString);
 
 
 
        btn_Send.setOnClickListener(new View.OnClickListener() {
+
            @Override
            public void onClick(View view) {
+
                String msg = text_send.getText().toString();
                if(!msg.equals("")){
                    sendMessage(fUserString,tutoridString,msg);
@@ -83,6 +85,8 @@ public class ChatActivity extends AppCompatActivity {
                text_send.setText("");
            }
        });
+
+
        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("tutors").child(tutoridString);
        reference.addValueEventListener(new ValueEventListener() {
            @Override
@@ -116,6 +120,8 @@ public class ChatActivity extends AppCompatActivity {
         mChats = new ArrayList<>();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Chats");
 
+
+
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -127,15 +133,18 @@ public class ChatActivity extends AppCompatActivity {
 
 
 //                    if(chat.getReceiver().equals(myId) && chat.getSender().equals(userId))
-                   if(chat.getReceiver()==tutoridString && chat.getSender() == fUserString){
+                   if(chat.getReceiver().equals(userId) && chat.getSender().equals(myId)){
+
                         mChats.add(chat);
                         System.out.println(tutoridString + "tutor");
                        System.out.println(fUserString + "user");
 
 
                     }
+
                     messageAdapter = new MessageAdapter(ChatActivity.this,mChats);
                     recycler_View.setAdapter(messageAdapter);
+
                 }
             }
 
