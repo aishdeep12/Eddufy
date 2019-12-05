@@ -3,6 +3,7 @@ package com.edufy.eddufy;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,7 +73,7 @@ ArrayList<RegistrationInformation> fireBaseFetch;
             firebasevariable2 = fireBaseFetchVariable;
 
 
-            tutorName = fireBaseFetchVariable.name;
+
 
         }
 
@@ -95,13 +96,15 @@ ArrayList<RegistrationInformation> fireBaseFetch;
 
 
                     tutorId = fireBaseFetchVariable.userId;
-                    System.out.println(tutorId + "In adaptor tutor");
-                    System.out.println(uid + "In adaptor uid");
+                Log.e("Id Test:::",tutorId);
 
+
+                tutorName = fireBaseFetchVariable.name;
                     Intent intent = new Intent(connectButton.getContext(), ChatActivity.class);
                     intent.putExtra("uid", uid);
                     intent.putExtra("tutorid", tutorId);
                     intent.putExtra("tutorName", tutorName);
+                Log.e("Id Test:::",tutorName);
                     context.startActivity(intent);
 
 

@@ -82,7 +82,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
 
             return MSG_TYPE_RIGHT;
+
         }
+
+        else
         return MSG_TYPE_LEFT;
     }
 }

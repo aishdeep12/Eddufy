@@ -34,7 +34,7 @@ public class ChatActivity extends AppCompatActivity {
     FirebaseUser fUser;
     Intent intent;
     MessageAdapter messageAdapter;
-    ArrayList<MessageInfo> mChats;
+    List<MessageInfo> mChats;
     RecyclerView recycler_View;
     public String fUserString;
     public String tutorNameString;
@@ -59,15 +59,18 @@ public class ChatActivity extends AppCompatActivity {
 //       fUser = FirebaseAuth.getInstance().getCurrentUser();
 //         fUser = FirebaseAuth.getInstance().getCurrentUser();
         Bundle extras = getIntent().getExtras();
-        fUserString = "4EnN1wtdqAY4a3KPGCigRr07bFz1";
-//     fUserString = extras.getString("uid");
+//        tutoridString =
+     fUserString = extras.getString("uid");
         tutorNameString = extras.getString("tutorName");
-        tutoridString="bpgvI1n4tkOavEb6edUgEibWQQn1";
-//       tutoridString = extras.getString("tutorid");
+//        fUserString="bpgvI1n4tkOavEb6edUgEibWQQn1";
+       tutoridString = extras.getString("tutorid");
         System.out.println(tutoridString + " tutormy");
         System.out.println(fUserString + " usermy");
         username.setText(tutorNameString);
 
+        Log.e("Id Test111:::",tutoridString);
+
+        Log.e("Id Testuseid:::",fUserString);
 
 
        btn_Send.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +124,6 @@ public class ChatActivity extends AppCompatActivity {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Chats");
 
 
-
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -131,21 +133,15 @@ public class ChatActivity extends AppCompatActivity {
 
                     MessageInfo chat = chatSnapshot.getValue(MessageInfo.class);
 
-
-//                    if(chat.getReceiver().equals(myId) && chat.getSender().equals(userId))
-                    if (chat.getReceiver().equals(userId))
-                        if (chat.getSender().equals(myId)) {
-//
-                            mChats.add(chat);
-                            System.out.println(tutoridString + "tutor");
-                            System.out.println(fUserString + "user");
+                    Log.e("Id Testuseid:::", String.valueOf(chat.message));
 
 
-                            messageAdapter = new MessageAdapter(ChatActivity.this, mChats);
-                            recycler_View.setAdapter(messageAdapter);
+                    if (chat.getReceiver().equals(tutoridString) && chat.getSender().equals(fUserString) ||chat.getReceiver().equals(fUserString) && chat.getSender().equals(tutoridString) ) {
+                        mChats.add(chat);
+                    }
 
-                        }
-
+                    messageAdapter = new MessageAdapter(ChatActivity.this, mChats);
+                    recycler_View.setAdapter(messageAdapter);
                 }
             }
 
