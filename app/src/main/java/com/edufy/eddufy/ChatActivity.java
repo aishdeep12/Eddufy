@@ -62,7 +62,7 @@ public class ChatActivity extends AppCompatActivity {
         fUserString = "4EnN1wtdqAY4a3KPGCigRr07bFz1";
 //     fUserString = extras.getString("uid");
         tutorNameString = extras.getString("tutorName");
-        tutoridString="T9txXW5H2xS0WdoOLxWLO9g1EB93";
+        tutoridString="bpgvI1n4tkOavEb6edUgEibWQQn1";
 //       tutoridString = extras.getString("tutorid");
         System.out.println(tutoridString + " tutormy");
         System.out.println(fUserString + " usermy");
@@ -133,17 +133,18 @@ public class ChatActivity extends AppCompatActivity {
 
 
 //                    if(chat.getReceiver().equals(myId) && chat.getSender().equals(userId))
-                   if(chat.getReceiver().equals(userId) && chat.getSender().equals(myId)){
+                    if (chat.getReceiver().equals(userId))
+                        if (chat.getSender().equals(myId)) {
 
-                        mChats.add(chat);
-                        System.out.println(tutoridString + "tutor");
-                       System.out.println(fUserString + "user");
+                            mChats.add(chat);
+                            System.out.println(tutoridString + "tutor");
+                            System.out.println(fUserString + "user");
 
 
-                    }
+                            messageAdapter = new MessageAdapter(ChatActivity.this, mChats);
+                            recycler_View.setAdapter(messageAdapter);
 
-                    messageAdapter = new MessageAdapter(ChatActivity.this,mChats);
-                    recycler_View.setAdapter(messageAdapter);
+                        }
 
                 }
             }

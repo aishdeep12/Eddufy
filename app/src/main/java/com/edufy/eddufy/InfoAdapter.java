@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ import static androidx.recyclerview.widget.RecyclerView.*;
 public class InfoAdapter extends ArrayAdapter {
     Context context;
     public Button connectButton;
-    public static String uid ;
+    public String uid ;
     public String tutorId;
     public String tutorName;
     public int positions;
@@ -48,19 +49,21 @@ ArrayList<RegistrationInformation> fireBaseFetch;
 
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+
 
         final RegistrationInformation fireBaseFetchVariable = fireBaseFetch.get(position);
 
 
 
-            View listViewItem = LayoutInflater.from(context).inflate(R.layout.listview, null, true);
+            convertView = LayoutInflater.from(context).inflate(R.layout.listview, null, true);
 
         if (!uid.equals(fireBaseFetchVariable.userId)) {
-            TextView textViewName = listViewItem.findViewById(R.id.textViewName);
-            TextView textViewCourse = listViewItem.findViewById(R.id.textViewCourse);
-            ImageView imageViewImage = listViewItem.findViewById(R.id.imageViewImage);
-            connectButton = listViewItem.findViewById(R.id.coneectButton);
+            TextView textViewName = convertView.findViewById(R.id.textViewName);
+            TextView textViewCourse = convertView.findViewById(R.id.textViewCourse);
+            ImageView imageViewImage = convertView.findViewById(R.id.imageViewImage);
+            connectButton = convertView.findViewById(R.id.coneectButton);
 
             textViewName.setText(fireBaseFetchVariable.name);
             textViewCourse.setText(fireBaseFetchVariable.course);
@@ -71,28 +74,44 @@ ArrayList<RegistrationInformation> fireBaseFetch;
 
             tutorName = fireBaseFetchVariable.name;
 
+        }
 
-            connectButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+        else
+            {
+                remove(fireBaseFetchVariable);
+        }
 
-                    tutorId = firebasevariable2.userId;
+        connectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View parentRow = (View) view.getParent();
+
+                ListView listView = (ListView) parentRow.getParent();
+
+                final int position = listView.getPositionForView(parentRow);
+
+
+                final RegistrationInformation fireBaseFetchVariable = fireBaseFetch.get(position);
+
+
+                    tutorId = fireBaseFetchVariable.userId;
                     System.out.println(tutorId + "In adaptor tutor");
                     System.out.println(uid + "In adaptor uid");
 
-                    Intent intent = new Intent(context, ChatActivity.class);
+                    Intent intent = new Intent(connectButton.getContext(), ChatActivity.class);
                     intent.putExtra("uid", uid);
                     intent.putExtra("tutorid", tutorId);
                     intent.putExtra("tutorName", tutorName);
                     context.startActivity(intent);
 
 
-                }
-            });
-        } else{
-remove(fireBaseFetchVariable);
-        }
-            return listViewItem;
+
+
+
+
+            }
+        });
+            return convertView;
 
         }
 
