@@ -135,7 +135,7 @@ public class ChatActivity extends AppCompatActivity {
 //                    if(chat.getReceiver().equals(myId) && chat.getSender().equals(userId))
                     if (chat.getReceiver().equals(userId))
                         if (chat.getSender().equals(myId)) {
-
+//
                             mChats.add(chat);
                             System.out.println(tutoridString + "tutor");
                             System.out.println(fUserString + "user");
