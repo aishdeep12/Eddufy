@@ -42,6 +42,7 @@ public String uid;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         databaseReference = FirebaseDatabase.getInstance().getReference("tutors");
+
         tutorsList = new ArrayList<>();
         listViewTutors = findViewById(R.id.listViewTutors);
         editText3 = findViewById(R.id.editText3);
