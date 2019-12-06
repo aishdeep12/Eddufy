@@ -27,15 +27,21 @@
         android:layout_height="65dp"
         android:layout_below="@id/recycler_View"
         android:background="#FFFFFF"
+        android:paddingStart="10dp"
         android:hint="  Type Message Here" />
 
     <Button
         android:id="@+id/btn_Send"
-        android:layout_width="98dp"
-        android:layout_height="61dp"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
         android:layout_below="@id/recycler_View"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="-4dp"
         android:layout_toRightOf="@id/text_send"
-        android:text="Send" />
+
+        android:background="@drawable/shape_btn"
+        android:text="Send"
+        android:textColor="#FFDCD011" />
 
     <TextView
         android:id="@+id/username"
@@ -45,7 +51,8 @@
         android:paddingLeft="10dp"
         android:paddingTop="15dp"
         android:text="User Name"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFDCD011"
+
         android:textColorHint="#FFFFFF"
         android:textSize="20sp" />
 

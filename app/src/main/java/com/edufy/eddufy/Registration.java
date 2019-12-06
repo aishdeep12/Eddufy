@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -49,6 +50,8 @@ public class Registration extends AppCompatActivity implements OnItemSelectedLis
         Female = findViewById(R.id.radioButtonFemale);
 
          email = getIntent().getStringExtra("Email");
+
+        Log.e("Email   ", email);
 
         spinnerOrganization = findViewById(R.id.spinnerOrganization);
         spinnerCourse = findViewById(R.id.spinnerCourse);
@@ -122,20 +125,6 @@ buttonRegistration.setOnClickListener(new View.OnClickListener() {
 });
 
 
-
-//        myTutor.setValue("Trisha");
-//        myTutor.child("boyfriend").setValue("aishdeep");
-//        myTutor.child("girlfriend").setValue("trisha");
-//
-//        myStudent.child("boyfriend").setValue("aishdeep");
-//        myStudent.child("girlfriend").setValue("trisha");
-
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//        InfoFragment fragment = new InfoFragment();
-//        fragmentTransaction.add(R.id.fragment, fragment);
-//        fragmentTransaction.commit();
     }
 
 

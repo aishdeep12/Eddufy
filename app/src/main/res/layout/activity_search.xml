@@ -8,32 +8,39 @@
     tools:context=".Search">
 
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="387dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="30dp"
-        android:width="302dp"
-        android:ems="10"
-        android:hint="Course"
-        android:inputType="textPersonName"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ListView
         android:id="@+id/listViewTutors"
-        android:layout_width="422dp"
-        android:layout_height="577dp"
+        android:layout_width="415dp"
+        android:layout_height="489dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_selection"
+        android:layout_width="226dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+
+        android:layout_marginBottom="64dp"
+        android:background="#FFFFFF"
+        android:entries="@array/search_type"
+        app:layout_constraintBottom_toTopOf="@+id/listViewTutors"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="69dp"
+        android:text="Make A Selection"
+        android:textColor="#FFDCD011"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/listViewTutors"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

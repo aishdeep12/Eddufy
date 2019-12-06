@@ -103,6 +103,7 @@ public class SignUp extends AppCompatActivity {
                             String fuser = task.getResult().getUser().getUid();
                             System.out.println(fuser);
                             Intent I = new Intent(SignUp.this, Registration.class);
+                            I.putExtra("Email",editTextEmail.getText().toString());
                            I.putExtra("userId", fuser);
                             startActivity(I);
                             //display some message here

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -145,7 +146,8 @@ public class MainActivity extends AppCompatActivity {
                                 //progressBar.setVisibility(View.GONE);
 
                                 Intent intent = new Intent(getApplicationContext(), Search.class);
-                                intent.putExtra("Email",editTextEmail.getText().toString());
+                                //intent.putExtra("Email",editTextEmail.getText().toString());
+
                                 intent.putExtra("uid",uid);
                                 startActivity(intent);
                             }

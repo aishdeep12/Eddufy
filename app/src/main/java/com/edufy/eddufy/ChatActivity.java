@@ -2,10 +2,16 @@ package com.edufy.eddufy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
@@ -39,6 +45,9 @@ public class ChatActivity extends AppCompatActivity {
     public String fUserString;
     public String tutorNameString;
     public String tutoridString;
+    private static final String PRIMARY_CHANNEL_ID = "primary_notification_channel";
+    private NotificationManager mNotificationManager;
+    private static final int NOTIFICATION_ID = 0;
 
 
     @Override
@@ -51,26 +60,24 @@ public class ChatActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         recycler_View = findViewById(R.id.recycler_View);
         recycler_View.setHasFixedSize(true);
+
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recycler_View.setLayoutManager(linearLayoutManager);
+
+
         intent = getIntent();
-       // final String userId = intent.getStringExtra("name");
-//       fUser = FirebaseAuth.getInstance().getCurrentUser();
-//         fUser = FirebaseAuth.getInstance().getCurrentUser();
         Bundle extras = getIntent().getExtras();
-//        tutoridString =
+
      fUserString = extras.getString("uid");
         tutorNameString = extras.getString("tutorName");
-//        fUserString="bpgvI1n4tkOavEb6edUgEibWQQn1";
+
        tutoridString = extras.getString("tutorid");
-        System.out.println(tutoridString + " tutormy");
-        System.out.println(fUserString + " usermy");
+
         username.setText(tutorNameString);
 
-        Log.e("Id Test111:::",tutoridString);
-
-        Log.e("Id Testuseid:::",fUserString);
+        createNotificationChannel();
 
 
        btn_Send.setOnClickListener(new View.OnClickListener() {
@@ -109,6 +116,53 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 
+    private void sendNotification() {
+
+        NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
+
+        mNotificationManager.notify(NOTIFICATION_ID,notifyBuilder.build());
+
+
+    }
+
+
+    public void  createNotificationChannel(){
+        mNotificationManager = (NotificationManager)
+                getSystemService(NOTIFICATION_SERVICE);
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O) {
+//CREATE NOTIFICATION CHANNEL
+            NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_ID,"Test Notification Channel",NotificationManager.IMPORTANCE_HIGH);
+
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.RED);
+            notificationChannel.enableVibration(true);
+            notificationChannel.setDescription("Notification from test notification channel");
+
+            mNotificationManager.createNotificationChannel(notificationChannel);
+        }    }
+
+
+    private NotificationCompat.Builder getNotificationBuilder(){
+
+        Intent notificationIntent = new Intent(this,MainActivity.class);
+        PendingIntent notificationPendingintent = PendingIntent.getActivity(
+                this,NOTIFICATION_ID,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        //instane of our notification builder
+        NotificationCompat.Builder notifyBuillder = new NotificationCompat.Builder(
+                this,
+                PRIMARY_CHANNEL_ID)//channel id
+                .setContentTitle("Map Location UPdated")
+                .setContentText("")
+//                .setSmallIcon(R.drawable.downloadimg)
+                .setContentIntent(notificationPendingintent)
+                .setAutoCancel(true);
+
+        return notifyBuillder;
+
+    }
+
+
     private void sendMessage (String sender , String receiver , String message){
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -117,6 +171,7 @@ public class ChatActivity extends AppCompatActivity {
         hashMap.put("receiver", receiver);
         hashMap.put("message", message);
         databaseReference.child("Chats").push().setValue(hashMap);
+
     }
 
     private void readMessage (final String myId , final String userId){

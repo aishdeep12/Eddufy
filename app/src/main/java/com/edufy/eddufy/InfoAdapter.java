@@ -3,8 +3,8 @@ package com.edufy.eddufy;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -58,9 +58,11 @@ ArrayList<RegistrationInformation> fireBaseFetch;
 
 
 
-            convertView = LayoutInflater.from(context).inflate(R.layout.listview, null, true);
+          convertView = LayoutInflater.from(context).inflate(R.layout.listview, null, true);
+//
+//     if (!uid.equals(fireBaseFetchVariable.userId)) {
 
-        if (!uid.equals(fireBaseFetchVariable.userId)) {
+           // convertView = LayoutInflater.from(context).inflate(R.layout.listview, null, true);
             TextView textViewName = convertView.findViewById(R.id.textViewName);
             TextView textViewCourse = convertView.findViewById(R.id.textViewCourse);
             ImageView imageViewImage = convertView.findViewById(R.id.imageViewImage);
@@ -73,18 +75,24 @@ ArrayList<RegistrationInformation> fireBaseFetch;
             firebasevariable2 = fireBaseFetchVariable;
 
 
+        convertView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Intent intent = new Intent(context,TutorInfo.class);
 
-
-        }
-
-        else
-            {
-                remove(fireBaseFetchVariable);
-        }
+                intent.putExtra("name",fireBaseFetchVariable.name);
+                intent.putExtra("email",fireBaseFetchVariable.email);
+                intent.putExtra("course",fireBaseFetchVariable.course);
+                intent.putExtra("institution",fireBaseFetchVariable.institution);
+                context.startActivity(intent);
+                return false;
+            }
+        });
 
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 View parentRow = (View) view.getParent();
 
                 ListView listView = (ListView) parentRow.getParent();
@@ -96,15 +104,15 @@ ArrayList<RegistrationInformation> fireBaseFetch;
 
 
                     tutorId = fireBaseFetchVariable.userId;
-                Log.e("Id Test:::",tutorId);
-
-
                 tutorName = fireBaseFetchVariable.name;
+
+                    System.out.println(tutorId + "In adaptor tutor");
+                    System.out.println(uid + "In adaptor uid");
+
                     Intent intent = new Intent(connectButton.getContext(), ChatActivity.class);
                     intent.putExtra("uid", uid);
                     intent.putExtra("tutorid", tutorId);
                     intent.putExtra("tutorName", tutorName);
-                Log.e("Id Test:::",tutorName);
                     context.startActivity(intent);
 
 

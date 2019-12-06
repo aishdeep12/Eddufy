@@ -41,6 +41,11 @@
         <item>Web API</item>
         <item>Web Applications</item>
 
+    </string-array>
+    <string-array name="search_type">
+        <item>Tutors</item>
+        <item>Students</item>
+
 
     </string-array>
 
