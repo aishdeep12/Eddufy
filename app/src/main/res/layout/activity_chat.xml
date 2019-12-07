@@ -16,31 +16,37 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_View"
         android:layout_width="match_parent"
-        android:layout_height="577dp"
+        android:layout_height="match_parent"
+
         android:layout_below="@id/toolbar"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="60dp"
         android:paddingLeft="15dp" />
 
     <EditText
         android:id="@+id/text_send"
-        android:layout_width="313dp"
-        android:layout_height="65dp"
-        android:layout_below="@id/recycler_View"
-        android:background="#FFFFFF"
-        android:paddingStart="10dp"
-        android:hint="  Type Message Here" />
+        android:layout_width="335dp"
+        android:layout_height="51dp"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/chattext"
+        android:hint="  Type Message Here"
+        android:paddingStart="10dp" />
 
     <Button
         android:id="@+id/btn_Send"
-        android:layout_width="100dp"
-        android:layout_height="55dp"
-        android:layout_below="@id/recycler_View"
-        android:layout_marginLeft="-1dp"
-        android:layout_marginTop="-4dp"
-        android:layout_toRightOf="@id/text_send"
+        android:layout_width="58dp"
+        android:layout_height="47dp"
 
-        android:background="@drawable/shape_btn"
-        android:text="Send"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="14dp"
+        android:layout_toRightOf="@id/text_send"
+        android:background="@drawable/sendbutton2"
         android:textColor="#FFDCD011" />
 
     <TextView
@@ -57,3 +63,67 @@
         android:textSize="20sp" />
 
 </RelativeLayout>
+
+<!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:background="#e6e6e6">-->
+
+<!--<androidx.appcompat.widget.Toolbar-->
+<!--    android:id="@+id/toolbar"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:background="?attr/colorPrimary"-->
+<!--    android:minHeight="?attr/actionBarSize"-->
+<!--    android:theme="?attr/actionBarTheme" />-->
+
+<!--<androidx.recyclerview.widget.RecyclerView-->
+<!--    android:id="@+id/recycler_View"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+
+<!--    android:layout_below="@id/toolbar"-->
+<!--    android:layout_marginTop="8dp"-->
+<!--    android:layout_marginBottom="60dp"-->
+<!--    android:paddingLeft="15dp" />-->
+
+<!--<EditText-->
+<!--    android:id="@+id/text_send"-->
+<!--    android:layout_width="333dp"-->
+<!--    android:layout_height="61dp"-->
+<!--    android:layout_below="@id/recycler_View"-->
+<!--    android:layout_marginLeft="5dp"-->
+<!--    android:layout_alignParentBottom="true"-->
+<!--    android:layout_marginTop="0dp"-->
+<!--    android:background="@drawable/chattext"-->
+<!--    android:hint="  Type Message Here"-->
+<!--    android:paddingStart="10dp" />-->
+
+<!--<Button-->
+<!--    android:id="@+id/btn_Send"-->
+<!--    android:layout_width="63dp"-->
+<!--    android:layout_height="57dp"-->
+<!--    android:layout_below="@id/recycler_View"-->
+<!--    android:layout_marginLeft="10dp"-->
+<!--    android:layout_marginTop="0dp"-->
+<!--    android:layout_toRightOf="@id/text_send"-->
+<!--    android:layout_alignParentBottom="true"-->
+<!--    android:background="@drawable/sendbutton2"-->
+<!--    android:textColor="#FFDCD011" />-->
+
+<!--<TextView-->
+<!--    android:id="@+id/username"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:hint="Username"-->
+<!--    android:paddingLeft="10dp"-->
+<!--    android:paddingTop="15dp"-->
+<!--    android:text="User Name"-->
+<!--    android:textColor="#FFDCD011"-->
+
+<!--    android:textColorHint="#FFFFFF"-->
+<!--    android:textSize="20sp" />-->
+
+<!--</RelativeLayout>-->

@@ -43,7 +43,7 @@ Button sendMail;
             public void onClick(View view) {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                         "mailto", email, null));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "This is my subject text");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
                 startActivity(Intent.createChooser(emailIntent, null));
             }
         });
