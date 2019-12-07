@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MotionEvent;
 
 public class Splash extends AppCompatActivity {
+
+    Boolean ontouch = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,5 +24,20 @@ public class Splash extends AppCompatActivity {
 
             }
         },1500);
+
+
     }
+
+    public boolean onTouchEvent(MotionEvent event)
+    {
+
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            ontouch = true;
+            startActivity(new Intent(Splash.this ,MainActivity.class));
+            finish();
+            return true;
+        }
+        return false;
+
+    };
 }
