@@ -57,7 +57,7 @@
         android:paddingLeft="10dp"
         android:paddingTop="15dp"
         android:text="User Name"
-        android:textColor="#FFDCD011"
+        android:textColor="#FFFFFF"
 
         android:textColorHint="#FFFFFF"
         android:textSize="20sp" />

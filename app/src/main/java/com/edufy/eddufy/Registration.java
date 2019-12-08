@@ -34,6 +34,7 @@ public class Registration extends AppCompatActivity implements OnItemSelectedLis
     public String institution ;
     public RadioButton Male,Female;
     public String userId;
+    public String userName;
 
  DatabaseReference dbRef;
 //    List<RegistrationInformation> registrationInfoList;
@@ -51,7 +52,7 @@ public class Registration extends AppCompatActivity implements OnItemSelectedLis
 
          email = getIntent().getStringExtra("Email");
 
-        Log.e("Email   ", email);
+
 
         spinnerOrganization = findViewById(R.id.spinnerOrganization);
         spinnerCourse = findViewById(R.id.spinnerCourse);
@@ -61,6 +62,8 @@ public class Registration extends AppCompatActivity implements OnItemSelectedLis
 
         Bundle extra = getIntent().getExtras();
         userId = extra.getString("userId");
+
+
 
 //      course = spinnerCourse.getOnItemSelectedListener().toString();
 
@@ -104,6 +107,8 @@ buttonRegistration.setOnClickListener(new View.OnClickListener() {
 
         DatabaseReference myTutor = database.getReference("tutors");
         DatabaseReference myStudent = database.getReference("student");
+
+        userName = editTextName.getText().toString();
         if(spinnerCourse.isEnabled()== true){
             String id  = myTutor.push().getKey();
 
@@ -119,6 +124,7 @@ buttonRegistration.setOnClickListener(new View.OnClickListener() {
         }
 
         Intent i = new Intent(Registration.this, MainActivity.class);
+//        i.putExtra("name",userName);
         startActivity(i);
 
     }

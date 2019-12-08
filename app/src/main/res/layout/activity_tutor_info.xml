@@ -18,7 +18,7 @@
         android:paddingEnd="10dp"
         android:text="Send Email"
 
-        android:textColor="#FFDCD011"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"

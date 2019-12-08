@@ -104,6 +104,7 @@ public class SignUp extends AppCompatActivity {
                             System.out.println(fuser);
                             Intent I = new Intent(SignUp.this, Registration.class);
                             I.putExtra("Email",editTextEmail.getText().toString());
+//                            I.putExtra("name",editTextUserName.getText().toString());
                            I.putExtra("userId", fuser);
                             startActivity(I);
                             //display some message here

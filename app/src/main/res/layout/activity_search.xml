@@ -7,40 +7,73 @@
     android:background="@drawable/background"
     tools:context=".Search">
 
-
     <ListView
-        android:id="@+id/listViewTutors"
-        android:layout_width="415dp"
-        android:layout_height="489dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="14dp"
+        android:id="@+id/post_list"
+        android:layout_width="405dp"
+        android:layout_height="501dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="66dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinner_selection"
-        android:layout_width="226dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="16dp"
+    <RelativeLayout
+        android:layout_width="405dp"
+        android:layout_height="116dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="7dp"
+        android:background="#e6e6e6"
+        app:layout_constraintBottom_toTopOf="@+id/post_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/spinner_background"
-        android:entries="@array/search_type"
-        app:layout_constraintBottom_toTopOf="@+id/listViewTutors"
-        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewSelection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="69dp"
-        android:text="Make A Selection"
-        android:textColor="#FFDCD011"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/listViewTutors"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Spinner
+            android:id="@+id/spinner_selection"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="56dp"
+            android:background="@drawable/spinner_background"
+            android:entries="@array/search_type" />
+
+        <TextView
+            android:id="@+id/textViewSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="56dp"
+            android:background="@drawable/chattext"
+            android:paddingStart="10dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="3dp"
+            android:text="Make A Selection"
+            android:textColor="#FF626262"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/navbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/post_list"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/menu_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

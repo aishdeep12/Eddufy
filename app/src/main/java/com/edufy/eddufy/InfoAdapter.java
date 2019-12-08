@@ -3,6 +3,7 @@ package com.edufy.eddufy;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -89,6 +90,8 @@ ArrayList<RegistrationInformation> fireBaseFetch;
             }
         });
 
+
+
         connectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,7 +107,8 @@ ArrayList<RegistrationInformation> fireBaseFetch;
 
 
                     tutorId = fireBaseFetchVariable.userId;
-                tutorName = fireBaseFetchVariable.name;
+                    tutorName = fireBaseFetchVariable.name;
+
 
                     System.out.println(tutorId + "In adaptor tutor");
                     System.out.println(uid + "In adaptor uid");

@@ -39,7 +39,7 @@
         android:layout_marginBottom="140dp"
         android:background="@drawable/shape_btn"
         android:text="Done"
-        android:textColor="#FFDCD011"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -58,7 +58,7 @@
         android:hint="Name"
         android:inputType="textEmailAddress"
         android:paddingStart="20dp"
-        android:textColorHint="#FFDCD011"
+        android:textColorHint="#FF626262"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/radioGroupGender"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +84,7 @@
             android:layout_height="match_parent"
             android:text="Male"
 
-            android:textColor="#FFDCD011"
+            android:textColor="#FFFFFF"
             tools:layout_editor_absoluteX="44dp"
             tools:layout_editor_absoluteY="236dp" />
 
@@ -93,7 +93,7 @@
             android:layout_width="131dp"
             android:layout_height="22dp"
             android:text="Female"
-            android:textColor="#FFDCD011"
+            android:textColor="#FFFFFF"
             tools:layout_editor_absoluteX="174dp"
             tools:layout_editor_absoluteY="240dp" />
 

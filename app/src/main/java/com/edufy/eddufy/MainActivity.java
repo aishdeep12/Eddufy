@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     TextView textViewSignUp;
     ProgressDialog progressBar;
+    public String userName;
 //    Settings.Global uid;
 
     @Override
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+//            Bundle extra = getIntent().getExtras();
+//            userName = extra.getString("name");
 
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -45,14 +47,18 @@ public class MainActivity extends AppCompatActivity {
         textViewSignUp = findViewById(R.id.textViewSignUp);
         forgotPassword = findViewById(R.id.textViewForgotPassword);
         progressBar = new ProgressDialog(this);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, Search.class);
-                startActivity(i);
-
-            }
-        });
+//
+//        buttonLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(MainActivity.this, Search.class);
+//
+//                Log.e("email  ", editTextEmail.getText().toString());
+//                i.putExtra("email",editTextEmail.getText().toString());
+//                startActivity(i);
+//
+//            }
+//        });
 
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,9 +155,10 @@ public class MainActivity extends AppCompatActivity {
                                 //progressBar.setVisibility(View.GONE);
 
                                 Intent intent = new Intent(getApplicationContext(), Search.class);
-                                //intent.putExtra("Email",editTextEmail.getText().toString());
+                                intent.putExtra("email",editTextEmail.getText().toString());
 
                                 intent.putExtra("uid",uid);
+
                                 startActivity(intent);
                             }
                             else {
